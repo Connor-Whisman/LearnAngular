@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-us" ng-app="myApp">
+<html lang="en-us" ng-app="app">
     <head>
         <title>Learn AngularJS</title>
         <meta charset="UTF-8">
@@ -9,7 +9,7 @@
             <h3>Notes</h3>
 
             <div ng-controller="appController">
-                <p>Create A Note:</p>
+                <p>Create A Note with {{ interpolationStr }}:</p>
                 <form name="noteForm">
                     <input type="text" ng-model="titleField" name="title" required minlength="2"/>
                     <input type="submit" value="Submit" />
@@ -19,9 +19,9 @@
                     </div>
                 </form>
             </div>
-
+            
         </div>
-        
+         
         <script src="//code.angularjs.org/1.8.0/angular.min.js"></script>
         <script src="//code.angularjs.org/1.8.0/angular-messages.min.js"></script>
         <script src="app.js"></script>
