@@ -5,7 +5,7 @@ var appMain = angular.module('app', ['ngMessages']); // Use array to declare out
 
 // Best way to write dependency injection. Minifying will not break because angular will look
 // at the strings to see what should be injected into the functions variables. Order of array elements matters
-appMain.controller('appController', ['$scope', '$log', '$http', function($scope, $log, $http) {
+appMain.controller('appController', ['$scope', '$log', function($scope, $log) {
     $scope.default = "Injection v2";
     $scope.logData = function() {
         $log.warn($scope.default);
@@ -16,23 +16,23 @@ appMain.controller('appController', ['$scope', '$log', '$http', function($scope,
     $scope.titleField = String($scope.default);
     $scope.interpolationStr = "Angular!";
 
-    
-    $http.get('http://localhost:8080')
-    .then(function(response) {
-        $scope.data = response;
-    }, function(error) {
-        console.log('error');
-    })
 
+
+
+}]);
+
+
+appMain.controller('httpController', ['$scope', '$log', '$http', function($scope, $log, $http) {    
+    $http.get('http://localhost:8080')
+        .then(function(response) {
+                $scope.response = response;
+            }, function(error) {
+                $log.error('ERROR');
+            }
+        )
     
     $scope.showDataVar = false;
     $scope.showData = function() {
         $scope.showDataVar = !$scope.showDataVar;
     }
-
-}]);
-
-
-appMain.controller('httpController', ['$scope', '$log', function($scope, $log) {    
-
 }]);

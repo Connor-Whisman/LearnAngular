@@ -8,6 +8,7 @@
         <div class="main-contain">
             <h3>Notes</h3>
 
+            
             <div ng-controller="appController">
                 <p>Create A Note with {{ interpolationStr }}:</p>
                 <form name="noteForm">
@@ -19,8 +20,10 @@
                     </div>
                 </form>
                 <br>
+            </div>
 
-                <div ng-if="data">
+            <div ng-controller="httpController">
+                <div ng-if="response">
                     <h3>Data is Available!</h3>
                     <input type="button" value="Show" ng-click="showData()">
                 </div>
@@ -30,13 +33,11 @@
                 <div ng-cloak ng-show="showDataVar">
                     <h1>Data</h1>
                     <ul>
-                        <li ng-repeat="i in data.data">
-                            {{ i.data }}
+                        <li ng-repeat="data in response.data.obj">
+                            {{ data.val }}
                         </li>
                     </ul>
                 </div>
-
-                
             </div>
             
         </div>
