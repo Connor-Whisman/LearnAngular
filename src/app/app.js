@@ -12,13 +12,8 @@ appMain.controller('appController', ['$scope', '$log', function($scope, $log) {
     }
     $scope.logData();
 
-    
     $scope.titleField = String($scope.default);
     $scope.interpolationStr = "Angular!";
-
-
-
-
 }]);
 
 
@@ -30,7 +25,6 @@ appMain.controller('httpController', ['$scope', '$log', '$http', function($scope
                 $log.error('ERROR');
             }
         )
-    
     $scope.showDataVar = false;
     $scope.showData = function() {
         $scope.showDataVar = !$scope.showDataVar;
