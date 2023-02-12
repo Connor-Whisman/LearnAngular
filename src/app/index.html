@@ -18,6 +18,25 @@
                         <div ng-message="minlength">The value you entered is too short</div>
                     </div>
                 </form>
+                <br>
+
+                <div ng-if="data">
+                    <h3>Data is Available!</h3>
+                    <input type="button" value="Show" ng-click="showData()">
+                </div>
+
+                <!-- ng-cloak hides the element until its been proccessed by angular. 
+                    Prevents element from being seen for a split second before being proccessed -->
+                <div ng-cloak ng-show="showDataVar">
+                    <h1>Data</h1>
+                    <ul>
+                        <li ng-repeat="i in data.data">
+                            {{ i.data }}
+                        </li>
+                    </ul>
+                </div>
+
+                
             </div>
             
         </div>
