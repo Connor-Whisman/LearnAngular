@@ -5,6 +5,11 @@
         <meta charset="UTF-8">
     </head>
     <body>
+        <ul class="nav">
+            <li><a href="#!/main">Home</a></li>
+            <li><a href="#!/new">New</a></li>
+        </ul>
+
         <div class="main-contain">
             <h3>Notes</h3>
 
@@ -22,8 +27,8 @@
                 <br>
             </div>
 
-            <!-- <div ng-controller="httpController"> -->
-            <div>
+            <div ng-controller="httpController">
+            <!-- <div> -->
                 <div ng-if="response">
                     <h3>Data is Available!</h3>
                     <input type="button" value="Show" ng-click="showData()">
@@ -40,12 +45,16 @@
                     </ul>
                 </div>
             </div>
+
+            <div ng-view>
+                
+            </div>
             
         </div>
          
         <script src="//code.angularjs.org/1.8.0/angular.min.js"></script>
         <script src="//code.angularjs.org/1.8.0/angular-messages.min.js"></script>
-        <script src="//code.angularjs.org/1.8.0/angular-route.min.js"></script>
+        <script src="//code.angularjs.org/1.8.0/angular-route.js"></script>
         <script src="app.js"></script>
     </body>
 </html>
