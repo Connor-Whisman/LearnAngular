@@ -10,6 +10,10 @@ app.config(function($routeProvider) {
         templateUrl: 'templates/new.html',
         controller: 'newController'
     })
+    .when('/new/:var', {
+        templateUrl: 'templates/new.html',
+        controller: 'newController'
+    })
 })
 
 // $scope is an angular service. Uses dependency injection to pass dynamic data between model and view
@@ -52,8 +56,8 @@ app.controller('httpController', ['$scope', '$log', '$http', function($scope, $l
 
 }]);
 
-app.controller('newController', ['$scope', '$log', function($scope, $log) {    
-    $scope.test = 'hello new';
+app.controller('newController', ['$scope', '$log', '$routeParams', function($scope, $log, $routeParams) {    
+    $scope.var = 'New: ' + ($routeParams.var || 'default');
 }]);
 
 
