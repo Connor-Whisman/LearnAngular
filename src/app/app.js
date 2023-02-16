@@ -16,12 +16,21 @@ app.config(function($routeProvider) {
     })
 })
 
+app.service('nameSvc', function() {
+    var self = this;
+
+    this.name = 'default name';
+    this.nameLen = function() {
+        return self.name.length;
+    };
+});
+
 // $scope is an angular service. Uses dependency injection to pass dynamic data between model and view
 // $log is another service with features to log data in a clean way. Instead of console.log
 
 // Best way to write dependency injection. Minifying will not break because angular will look
 // at the strings to see what should be injected into the functions variables. Order of array elements matters
-app.controller('appController', ['$scope', '$log', function($scope, $log) {
+app.controller('appController', ['$scope', '$log', 'nameSvc', function($scope, $log, nameSvc) {
 
     $scope.default = "Injection v2";
     $scope.logData = function() {
@@ -31,6 +40,10 @@ app.controller('appController', ['$scope', '$log', function($scope, $log) {
 
     $scope.titleField = String($scope.default);
     $scope.interpolationStr = "Angular!";
+
+    $log.info(nameSvc.name);
+    $log.info(nameSvc.nameLen());
+    
 }]);
 
 
