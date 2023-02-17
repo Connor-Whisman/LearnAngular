@@ -48,7 +48,7 @@ app.controller('appController', ['$scope', '$log', 'nameSvc', function($scope, $
 
 
 app.controller('httpController', ['$scope', '$log', '$http', function($scope, $log, $http) {    
-    const URL   = 'http://localhost:8080';
+    const URL   = 'http://localhost:8080/';
 
     $http.get(URL)
         .then(function(response) {
@@ -62,12 +62,23 @@ app.controller('httpController', ['$scope', '$log', '$http', function($scope, $l
         $scope.showDataVar = !$scope.showDataVar;
     }
 
-    // $http.post(URL)
-    //     .success(function(response) {
-    //         $log.log(response);
-    //     })
+    $scope.addRow = function() {
+        var object  = {
+            "obj": [{"id": 4, "val": 44}]
+        }
+        $http.post({
+            method: 'POST',
+            url: URL,
+            data: object,
+            headers: {
+                "Content-Type": "application/json",
+                'Access-Control-Allow-Origin': '*'
+            }
+        }).then(function(response) {
+                $log.log(response.data);
+            });
 
-}]);
+}}]);
 
 app.controller('newController', ['$scope', '$log', '$routeParams', function($scope, $log, $routeParams) {    
     $scope.var = 'New: ' + ($routeParams.var || 'default');
