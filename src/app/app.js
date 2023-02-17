@@ -64,16 +64,16 @@ app.controller('httpController', ['$scope', '$log', '$http', function($scope, $l
 
     $scope.addRow = function() {
         var object  = {
-            "obj": [{"id": 4, "val": 44}]
+            "obj": {"id": 4, "val": 44}
         }
         $http.post({
             method: 'POST',
             url: URL,
-            data: object,
-            headers: {
+            data: JSON.stringify(object),
+            headers: JSON.stringify({
                 "Content-Type": "application/json",
                 'Access-Control-Allow-Origin': '*'
-            }
+            })
         }).then(function(response) {
                 $log.log(response.data);
             });
