@@ -15,7 +15,7 @@
 
             
             <div ng-controller="appController">
-                <p>Create A Note with {{ interpolationStr }}:</p>
+                <p>Create A Note. {{ interpolationStr }}:</p>
                 <form name="noteForm">
                     <input type="text" ng-model="titleField" name="title" required minlength="2"/>
                     <input type="submit" value="Submit" />
@@ -39,9 +39,10 @@
                 <div ng-cloak ng-show="showDataVar">
                     <h1>Data</h1>
                     <ul>
-                        <li ng-repeat="data in response.data.obj">
+                        <!-- <li ng-repeat="data in response.data.obj">
                             {{ data.val }}
-                        </li>
+                        </li> -->
+                        <result></result>
                     </ul>
                     <input type="submit" value="Post More" ng-click="addRow()"
                 </div>
@@ -50,6 +51,9 @@
             <div ng-view>
                 
             </div>
+
+            <!-- CUSTOM DIRECTIVE -->
+            <!-- <result></result> -->
             
         </div>
          

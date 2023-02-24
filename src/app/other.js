@@ -1,21 +1,3 @@
-var app = angular.module('app', ['ngMessages', 'ngRoute']); // Use array to declare outside dependencies like ngMessages
-
-app.config(function($routeProvider) {
-    $routeProvider
-    .when('/main', {
-        templateUrl: 'templates/main.html',
-        controller: 'appController'
-    })
-    .when('/new', {
-        templateUrl: 'templates/new.html',
-        controller: 'newController'
-    })
-    .when('/new/:var', {
-        templateUrl: 'templates/new.html',
-        controller: 'newController'
-    })
-})
-
 app.service('nameSvc', function() {
     var self = this;
 
@@ -30,16 +12,16 @@ app.service('nameSvc', function() {
 
 // Best way to write dependency injection. Minifying will not break because angular will look
 // at the strings to see what should be injected into the functions variables. Order of array elements matters
-app.controller('appController', ['$scope', '$log', 'nameSvc', function($scope, $log, nameSvc) {
+app.controller('appCtrl', ['$scope', '$log', 'nameSvc', function($scope, $log, nameSvc) {
 
-    $scope.default = "Injection";
+    $scope.default = "Injection v2";
     $scope.logData = function() {
         $log.warn($scope.default);
     }
     $scope.logData();
 
     $scope.titleField = String($scope.default);
-    $scope.interpolationStr = "Angular";
+    $scope.interpolationStr = "Angular!";
 
     $log.info(nameSvc.name);
     $log.info(nameSvc.nameLen());
@@ -47,7 +29,7 @@ app.controller('appController', ['$scope', '$log', 'nameSvc', function($scope, $
 }]);
 
 
-app.controller('httpController', ['$scope', '$log', '$http', function($scope, $log, $http) {    
+app.controller('httpCtrl', ['$scope', '$log', '$http', function($scope, $log, $http) {    
     const URL   = 'http://localhost:8080/';
 
     $http.get(URL)
@@ -83,14 +65,3 @@ app.controller('httpController', ['$scope', '$log', '$http', function($scope, $l
 app.controller('newController', ['$scope', '$log', '$routeParams', function($scope, $log, $routeParams) {    
     $scope.var = 'New: ' + ($routeParams.var || 'default');
 }]);
-
-
-app.directive('result', function() {
-    return {
-        restrict: 'AEC', // A = attribute, E = element, c = class
-        templateUrl: 'directives/result.html',
-        // scope: {
-        //     object: "@"
-        // }
-    }
-});
