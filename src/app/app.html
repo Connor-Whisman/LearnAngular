@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en-us" ng-app="app">
+    <head>
+        <title>Learn Angular</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+
+        <div ng-controller="appController">
+            <p>{{ interpolationStr }}</p>
+            <form name="noteForm">
+                <input type="text" ng-model="titleField" name="title" required minlength="2"/>
+                <input type="submit" value="Submit" />
+                <div ng-messages="noteForm.title.$error">
+                    <div ng-message="required">This field is required</div>
+                    <div ng-message="minlength">The value you entered is too short</div>
+                </div>
+            </form>
+            <br>
+        </div> 
+
+         
+        <script src="//code.angularjs.org/1.8.0/angular.min.js"></script>
+        <script src="//code.angularjs.org/1.8.0/angular-messages.min.js"></script>
+        <script src="//code.angularjs.org/1.8.0/angular-route.js"></script>
+        <script src="app.js"></script>
+        <script src="appCtrl.js"></script>
+    </body>
+</html>
