@@ -17,8 +17,8 @@
             <div ng-controller="appController">
                 <p>Create A Note. {{ interpolationStr }}:</p>
                 <form name="noteForm">
-                    <input type="text" ng-model="titleField" name="title" required minlength="2"/>
-                    <input type="submit" value="Submit" />
+                    <input type="text" ng-model="interpolationStr" name="title" required minlength="2"/>
+                    
                     <div ng-messages="noteForm.title.$error">
                         <div ng-message="required">This field is required</div>
                         <div ng-message="minlength">The value you entered is too short</div>
@@ -31,7 +31,7 @@
             <!-- <div> -->
                 <div ng-if="response">
                     <h3>Data is Available!</h3>
-                    <input type="button" value="Show" ng-click="showData()">
+                    <input type="button" value="Show" ng-click="showData()" />
                 </div>
 
                 <!-- ng-cloak hides the element until its been proccessed by angular. 
@@ -39,17 +39,16 @@
                 <div ng-cloak ng-show="showDataVar">
                     <h1>Data</h1>
                     <ul>
-                        <!-- <li ng-repeat="data in response.data.obj">
-                            {{ data.val }}
-                        </li> -->
+                        <li ng-repeat="data in response.buckets">
+                            {{ data.name }}
+                        </li>
                         <result></result>
                     </ul>
-                    <input type="submit" value="Post More" ng-click="addRow()"
                 </div>
             </div>
 
+
             <div ng-view>
-                
             </div>
 
             <!-- CUSTOM DIRECTIVE -->
@@ -60,8 +59,6 @@
         <script src="//code.angularjs.org/1.8.0/angular.min.js"></script>
         <script src="//code.angularjs.org/1.8.0/angular-messages.min.js"></script>
         <script src="//code.angularjs.org/1.8.0/angular-route.js"></script>
-        <script src="../app.js"></script>
-        <script src="../appCtrl.js"></script>
-        <script src="test.js"></script>
+        <script src="test/test.js"></script>
     </body>
 </html>

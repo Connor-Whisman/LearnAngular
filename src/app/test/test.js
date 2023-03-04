@@ -1,17 +1,21 @@
  // Use array to declare outside dependencies like ngMessages
+var app = angular.module('app', [
+    'ngMessages',
+    'ngRoute'
+]);
 
 app.config(function($routeProvider) {
     $routeProvider
     .when('/main', {
-        templateUrl: '../templates/main.html',
+        templateUrl: 'templates/main.html',
         controller: 'appController'
     })
     .when('/new', {
-        templateUrl: '../templates/new.html',
+        templateUrl: 'templates/new.html',
         controller: 'newController'
     })
     .when('/new/:var', {
-        templateUrl: '../templates/new.html',
+        templateUrl: 'templates/new.html',
         controller: 'newController'
     })
 })
@@ -25,12 +29,25 @@ app.service('nameSvc', function() {
     };
 });
 
+app.controller('appController', ['$scope', '$log', function($scope, $log) {
+
+    $scope.default = 'Warning Test!';
+
+    $scope.logData = function() {
+        $log.warn($scope.default);
+    }
+    $scope.logData();
+
+    $scope.interpolationStr = "Home";
+    
+}]);
+
 app.controller('httpController', ['$scope', '$log', '$http', function($scope, $log, $http) {    
     const URL   = 'http://localhost:8080/';
 
     $http.get(URL)
         .then(function(response) {
-                $scope.response = response;
+                $scope.response = response.data;
             }, function(error) {
                 $log.error('ERROR');
             }
@@ -66,7 +83,7 @@ app.controller('newController', ['$scope', '$log', '$routeParams', function($sco
 app.directive('result', function() {
     return {
         restrict: 'AEC', // A = attribute, E = element, c = class
-        templateUrl: '../directives/result.html',
+        templateUrl: 'directives/result.html',
         // scope: {
         //     object: "@"
         // }
