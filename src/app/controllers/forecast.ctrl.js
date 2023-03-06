@@ -13,6 +13,15 @@ weather.controller('forecastCtrl', [
             $resource(`https://api.openweathermap.org/data/2.5/weather?lat=${$scope.lat}&lon=${$scope.lon}&appid=${forecastSvc.apiKey}`, 
                 {callback: 'JSON_CALLBACK'},
                 {get: {method: 'JSONP'}}
-            )
+            );
+
+        $scope.weatherResult = $scope.weatherAPI.get(
+            {
+                q: $scope.city,
+                cnt: 2
+            }
+        );
+
+        console.log($scope.weatherResult);
     }
 ])
