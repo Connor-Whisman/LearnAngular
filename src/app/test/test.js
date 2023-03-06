@@ -7,15 +7,15 @@ var app = angular.module('app', [
 app.config(function($routeProvider) {
     $routeProvider
     .when('/main', {
-        templateUrl: 'templates/main.html',
+        templateUrl: '../test/templates/main.html',
         controller: 'appController'
     })
     .when('/new', {
-        templateUrl: 'templates/new.html',
+        templateUrl: '../test/templates/new.html',
         controller: 'newController'
     })
     .when('/new/:var', {
-        templateUrl: 'templates/new.html',
+        templateUrl: '../test/templates/new.html',
         controller: 'newController'
     })
 })
@@ -83,7 +83,7 @@ app.controller('newController', ['$scope', '$log', '$routeParams', function($sco
 app.directive('result', function() {
     return {
         restrict: 'AEC', // A = attribute, E = element, c = class
-        templateUrl: 'directives/result.html',
+        templateUrl: '../test/directives/result.html',
         // scope: {
         //     object: "@"
         // }

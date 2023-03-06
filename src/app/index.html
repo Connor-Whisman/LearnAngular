@@ -1,64 +1,17 @@
 <!DOCTYPE html>
-<html lang="en-us" ng-app="app">
+<html lang="en-us" ng-app="weatherApp">
     <head>
-        <title>Learn AngularJS</title>
+        <title>Course Weather App</title>
         <meta charset="UTF-8">
     </head>
     <body>
-        <ul class="nav">
-            <li><a href="#!/main">Home</a></li>
-            <li><a href="#!/new">New</a></li>
-        </ul>
-
-        <div class="main-contain">
-            <h3>Notes</h3>
-
-            
-            <div ng-controller="appController">
-                <p>Create A Note. {{ interpolationStr }}:</p>
-                <form name="noteForm">
-                    <input type="text" ng-model="interpolationStr" name="title" required minlength="2"/>
-                    
-                    <div ng-messages="noteForm.title.$error">
-                        <div ng-message="required">This field is required</div>
-                        <div ng-message="minlength">The value you entered is too short</div>
-                    </div>
-                </form>
-                <br>
-            </div>
-
-            <div ng-controller="httpController">
-            <!-- <div> -->
-                <div ng-if="response">
-                    <h3>Data is Available!</h3>
-                    <input type="button" value="Show" ng-click="showData()" />
-                </div>
-
-                <!-- ng-cloak hides the element until its been proccessed by angular. 
-                    Prevents element from being seen for a split second before being proccessed -->
-                <div ng-cloak ng-show="showDataVar">
-                    <h1>Data</h1>
-                    <ul>
-                        <li ng-repeat="data in response.buckets">
-                            {{ data.name }}
-                        </li>
-                        <result></result>
-                    </ul>
-                </div>
-            </div>
-
-
-            <div ng-view>
-            </div>
-
-            <!-- CUSTOM DIRECTIVE -->
-            <!-- <result></result> -->
-            
-        </div>
+        <h1>Weather App</h1>
          
+        
         <script src="//code.angularjs.org/1.8.0/angular.min.js"></script>
+        <script src="//code.angularjs.org/1.8.0/angular-resource.min.js"></script>
         <script src="//code.angularjs.org/1.8.0/angular-messages.min.js"></script>
-        <script src="//code.angularjs.org/1.8.0/angular-route.js"></script>
-        <script src="test/test.js"></script>
+        <script src="//code.angularjs.org/1.8.0/angular-route.min.js"></script>
+        <script src="app.js"></script>
     </body>
 </html>
