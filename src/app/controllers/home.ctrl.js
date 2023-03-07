@@ -1,12 +1,12 @@
 weather.controller('homeCtrl', [
     '$scope',
-    'forecastSvc',
-    function($scope, forecastSvc) {
+    'locationSvc',
+    function($scope, locationSvc) {
         $scope.title = 'Home Page';
 
-        $scope.city = forecastSvc.city;
-        $scope.$watch('city', function() {
-            forecastSvc.city = $scope.city;
+        $scope.lat = locationSvc.lat;
+        $scope.$watch('lat', function() {
+            locationSvc.lat = $scope.lat;
         })
     }
 ])
