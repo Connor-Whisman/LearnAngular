@@ -8,9 +8,10 @@ weather.controller('forecastCtrl', [
         // $scope.city = locationSvc.city;
         $scope.lat  = locationSvc.lat;
         $scope.lon  = locationSvc.lon;
+        $scope.apiKey = locationSvc.apiKey;
 
         $scope.weatherAPI =
-            $resource(`https://api.openweathermap.org/data/2.5/weather?lat=${$scope.lat}&lon=${$scope.lon}&appid=${locationSvc.apiKey}`, 
+            $resource(`https://api.openweathermap.org/data/2.5/weather`, 
                 {callback: 'JSON_CALLBACK'},
                 {get: {method: 'JSONP'}}
             );
@@ -19,7 +20,7 @@ weather.controller('forecastCtrl', [
             {
                 lat: $scope.lat,
                 lon: $scope.lon,
-                
+                apiKey: $scope.apiKey
             }
         );
 

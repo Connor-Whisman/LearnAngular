@@ -9,7 +9,7 @@ weather.config(function($routeProvider) {
         templateUrl: 'templates/home.html',
         controller: 'homeCtrl'
     })
-    .when('/forecast', {
+    .when('/!/forecast', {
         templateUrl: 'templates/forecast.html',
         controller: 'forecastCtrl'
     })
