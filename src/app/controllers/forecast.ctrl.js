@@ -6,8 +6,8 @@ weather.controller('forecastCtrl', [
         $scope.title = 'Forecast Page';
 
         // $scope.city = locationSvc.city;
-        $scope.lat  = locationSvc.lat;
-        $scope.lon  = locationSvc.lon;
+        $scope.lat    = locationSvc.lat;
+        $scope.lon    = locationSvc.lon;
         $scope.apiKey = locationSvc.apiKey;
 
         $scope.weatherAPI =
