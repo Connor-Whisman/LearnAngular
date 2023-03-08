@@ -4,7 +4,10 @@
     <div class="col-md-offset-2 col-md-4">
         <h4>Forecast By City:</h4>
         <div class="form-group">
-            <input type="text" class="form-control" ng-model="lat" />
+            <label for="lat">Lat: </label>
+            <input type="text" class="form-control" ng-model="lat" id="lat" />
+            <label for="lon">Lon: </label>
+            <input type="text" class="form-control" ng-model="lon" id="lon" />
         </div>
         <a href="#!/forecast" class="btn btn-primary">Get Forecast</a>
     </div>

@@ -24,6 +24,8 @@ weather.controller('forecastCtrl', [
             }
         );
 
-        console.log($scope.weatherResult);
+        $scope.convert = function(kelvin) {
+            return (kelvin - 273.15) * 9/5 + 32
+        }
     }
 ])

@@ -5,8 +5,14 @@ weather.controller('homeCtrl', [
         $scope.title = 'Home Page';
 
         $scope.lat = locationSvc.lat;
+        $scope.lon = locationSvc.lon;
+
         $scope.$watch('lat', function() {
             locationSvc.lat = $scope.lat;
         })
+        $scope.$watch('lon', function() {
+            locationSvc.lon = $scope.lon;
+        })
+        
     }
 ])
