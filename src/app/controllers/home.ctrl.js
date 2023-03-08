@@ -4,15 +4,23 @@ weather.controller('homeCtrl', [
     function($scope, locationSvc) {
         $scope.title = 'Home Page';
 
-        $scope.lat = locationSvc.lat;
-        $scope.lon = locationSvc.lon;
+        $scope.city = locationSvc.city;
+        $scope.state = locationSvc.state;
+        $scope.country = locationSvc.country;
 
-        $scope.$watch('lat', function() {
-            locationSvc.lat = $scope.lat;
-        })
-        $scope.$watch('lon', function() {
-            locationSvc.lon = $scope.lon;
-        })
+        // $scope.lat = locationSvc.lat;
+        // $scope.lon = locationSvc.lon;
+
+
+        $scope.$watch('city', function() {
+            locationSvc.city = $scope.city;
+        });
+        $scope.$watch('state', function() {
+            locationSvc.state = $scope.state;
+        });
+        $scope.$watch('country', function() {
+            locationSvc.country = $scope.country;
+        });
         
     }
 ])
