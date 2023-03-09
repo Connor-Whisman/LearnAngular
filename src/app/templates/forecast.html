@@ -1,7 +1,7 @@
 <a href="#/">Home</a>
-<!-- <p>{{title}} for {{lat}}, {{lon}} </p> -->
+<p>{{title}} for {{city}}, {{state}} </p>
 
-<div>
-    {{geoResult}}
+<div ng-repeat="data in weatherResult.main">
+    {{data}}
 </div>
 
