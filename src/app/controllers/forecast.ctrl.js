@@ -8,7 +8,7 @@ weather.controller('forecastCtrl', [
 
         $scope.forecastSvc  = forecastSvc;
 
-        $scope.title = 'Forecast Page';
+        $scope.title = 'Forecast';
 
         $scope.city     = locationSvc.city;
         $scope.state    = locationSvc.state;

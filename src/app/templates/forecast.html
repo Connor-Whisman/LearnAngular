@@ -1,9 +1,36 @@
 <a href="#/">Home</a>
-<h2>{{title}} for {{city}}, {{state}} </h2>
+<!-- <h2>{{title}} for {{city}}, {{state}} </h2>
 
 <div>
     <h4>Date: {{convertDate(forecastSvc.weatherResult.dt)}}</h4>
-</div>
+</div> -->
+
+<table class="table table-dark col-md-10">
+    <thead>
+        <tr>
+            <th>{{title}} for {{city}}, {{state}}</th>
+            <th>Date: {{convertDate(forecastSvc.weatherResult.dt)}}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>Temp</th>
+            <td>{{convertTemp(forecastSvc.weatherResult.main.temp)}} °F</td>
+        </tr>
+        <tr>
+            <th>Temp High</th>
+            <td>{{convertTemp(forecastSvc.weatherResult.main.temp_max)}} °F</td>
+        </tr>
+        <tr>
+            <th>Temp Low</th>
+            <td>{{convertTemp(forecastSvc.weatherResult.main.temp_min)}} °F</td>
+        </tr>
+        <tr>
+            <th>Conditions</th>
+            <td>{{forecastSvc.weatherResult.weather[0].main}}</td>
+        </tr>
+    </tbody>
+</table>
 
 <div ng-repeat="data in weatherResult.main">
     {{data}}
