@@ -4,12 +4,10 @@ weather.controller('homeCtrl', [
     function($scope, locationSvc) {
         $scope.title = 'Home Page';
 
+        
         $scope.city = locationSvc.city;
         $scope.state = locationSvc.state;
         $scope.country = locationSvc.country;
-
-        // $scope.lat = locationSvc.lat;
-        // $scope.lon = locationSvc.lon;
 
 
         $scope.$watch('city', function() {
@@ -21,6 +19,5 @@ weather.controller('homeCtrl', [
         $scope.$watch('country', function() {
             locationSvc.country = $scope.country;
         });
-        
     }
 ])

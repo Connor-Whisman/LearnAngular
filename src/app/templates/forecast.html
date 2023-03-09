@@ -2,7 +2,7 @@
 <h2>{{title}} for {{city}}, {{state}} </h2>
 
 <div>
-    <h4>Date: {{convertDate(weatherResult.dt)}}</h4>
+    <h4>Date: {{convertDate(forecastSvc.weatherResult.dt)}}</h4>
 </div>
 
 <div ng-repeat="data in weatherResult.main">
@@ -10,6 +10,6 @@
 </div>
 
 <div>
-    {{weatherResult}}
+    {{forecastSvc.weatherResult}}
 </div>
 
