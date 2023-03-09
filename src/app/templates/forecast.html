@@ -1,7 +1,15 @@
 <a href="#/">Home</a>
-<p>{{title}} for {{city}}, {{state}} </p>
+<h2>{{title}} for {{city}}, {{state}} </h2>
+
+<div>
+    <h4>Date: {{convertDate(weatherResult.dt)}}</h4>
+</div>
 
 <div ng-repeat="data in weatherResult.main">
     {{data}}
+</div>
+
+<div>
+    {{weatherResult}}
 </div>
 

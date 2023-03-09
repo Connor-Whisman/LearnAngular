@@ -26,21 +26,12 @@ weather.controller('forecastCtrl', [
                 appid: $scope.apiKey
             }
         )
-        
-
         var weatherAPI =
             $resource(`https://api.openweathermap.org/data/2.5/weather`, 
                 {callback: 'JSON_CALLBACK'},
                 {get: {method: 'JSONP'}}
             );
 
-        // var weatherResult = weatherAPI.get(
-        //     {
-        //         lat: $scope.geoResult[0].lat,
-        //         lon: $scope.geoResult[0].lon,
-        //         appid: $scope.apiKey
-        //     }
-        // );
 
         geoResult.$promise.then(function() {
             var lat = geoResult[0].lat;
@@ -55,14 +46,16 @@ weather.controller('forecastCtrl', [
             );
 
             $scope.weatherResult = weatherResult;
-
             console.log(weatherResult);
         });
-        
-        
 
-        $scope.convert = function(kelvin) {
+
+        $scope.convertTemp = function(kelvin) {
             return ((kelvin - 273.15) * 1.8 + 32).toFixed(1)
+        }
+
+        $scope.convertDate = function(date) {
+            return new Date(date * 1000)
         }
     }
 ])
