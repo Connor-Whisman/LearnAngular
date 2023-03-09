@@ -17,13 +17,11 @@ weather.controller('forecastCtrl', [
 
         $scope.geoAPI =
             $resource(`http://api.openweathermap.org/geo/1.0/direct`, 
-                // {query: {method: 'get', isArray: true}}
-                {callback: 'JSON_CALLBACK'},
-                {get: {method: 'GET'}}
+                {query: {method: 'get', isArray: true}}
             );
-        $scope.geoResult = $scope.geoAPI.get(
+        $scope.geoResult = $scope.geoAPI.query(
             {
-                q: ($scope.city, $scope.state, $scope.country),
+                q: (`${$scope.city},${$scope.state},${$scope.country}`),
                 limit: 1,
                 appid: $scope.apiKey
             }
